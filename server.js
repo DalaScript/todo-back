@@ -1,18 +1,15 @@
 import http from "http";
 import dotenv from "dotenv";
+import { handleTasksRoutes } from "./routes/tasks.js";
 
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
 const server = http.createServer((req, res) => {
-    res.writeHead(200, {
-        "content-type": "text/html"
-    });
-    res.end(JSON.stringify({ message: "Server is running on port: " + PORT }));
+    handleTasksRoutes(req, res);
 });
 
 server.listen(PORT, () => {
     console.log(`server is running on http://localhost:${PORT}`);
-
 });
