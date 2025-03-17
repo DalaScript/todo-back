@@ -17,7 +17,7 @@ export function handleTasksRoutes(req, res) {
                 "cache-control": "no-cache"
             });
             res.end(
-                JSON.stringify({ message: "Task created successfully!", task: newTask })
+                JSON.stringify({ message: "Task created successfully!", tasks: newTask })
             );
         });
     }else {
