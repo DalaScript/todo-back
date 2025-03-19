@@ -30,7 +30,7 @@ async function startServer() {
                     res,
                     () => {
                         logInfo(`User ${req.user.username} accessed ${req.url}`);
-                        handleAuthRoutes(req, res);
+                        handleTasksRoutes(req, res);
                     },
                     60,
                     60 * 1000
