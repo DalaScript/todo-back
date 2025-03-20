@@ -54,3 +54,6 @@
 {"level":"info","message":"User DalaScript accessed /tasks?startDate=2024-01-01&endDate=2024-12-31"}
 {"level":"info","message":"User DalaScript accessed /tasks?startDate=2025-01-01&endDate=2025-12-31"}
 {"level":"info","message":"User DalaScript accessed /tasks?startDate=2025-01-01&endDate=2025-01-01"}
+{"level":"info","message":"User DalaScript logged in"}
+{"level":"info","message":"User DalaScript accessed /profile"}
+{"level":"info","message":"User DalaScript accessed /profile"}
