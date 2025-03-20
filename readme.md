@@ -260,7 +260,6 @@ Feel free to fork and submit issues!
 
 **Created with LineDev by DalaScript** 💻
 
-
 ---
 
 ## Author
@@ -275,4 +274,3 @@ Feel free to fork and submit issues!
 - [freeCodeCamp](https://www.freecodecamp.org/DalaScript)
 - [FrontendMentor](https://www.frontendmentor.io/profile/DalaScript)
 - [GitHub](https://github.com/DalaScript)
-
