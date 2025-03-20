@@ -8,7 +8,6 @@ import { rateLimiter } from "./middleware/rateLimiter.js";
 import { logInfo } from "./utils/logger.js"
 
 dotenv.config();
-
 const PORT = process.env.PORT || 5000;
 
 async function startServer() {
