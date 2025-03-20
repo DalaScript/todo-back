@@ -73,3 +73,7 @@
 {"level":"info","message":"User DalaScript accessed /users/random"}
 {"level":"info","message":"User DalaScript accessed /users/random"}
 {"level":"info","message":"User DalaScript accessed /users/random"}
+{"level":"info","message":"User DalaScript logged in"}
+{"level":"info","message":"User DalaScript accessed /tasks?sort=asc&completed=true&priority=1&startDate=2024-01-01&endDate=2024-12-31"}
+{"level":"info","message":"User DalaScript accessed /tasks?sort=asc&completed=true"}
+{"level":"info","message":"User DalaScript accessed /tasks/67da964490d1f0242bc1cbf1"}
