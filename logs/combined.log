@@ -88,3 +88,6 @@
 {"level":"info","message":"User DalaScript accessed /users/67dab0e564d9cc6fee86d41b"}
 {"level":"info","message":"User john logged in"}
 {"level":"info","message":"User john accessed /users/67d846ad9ece3376db575c51"}
+{"level":"info","message":"User john logged in"}
+{"level":"info","message":"User john logged in"}
+{"level":"info","message":"User john accessed /tasks"}
