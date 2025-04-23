@@ -1,6 +1,11 @@
 import { getDB } from "../db/db.js";
 import { ObjectId } from "mongodb";
-import { getCache, setCache, invalidDateCache } from "../utils/cache.js";
+import {
+    getCache,
+    setCache,
+    invalidateCache,
+    invalidateUserTaskCache,
+} from "../utils/cache.js"
 
 export async function handleTasksRoutes(req, res) {
     try {
@@ -86,7 +91,7 @@ export async function handleTasksRoutes(req, res) {
                 newTask.createdAt = new Date();
                 newTask.completed = false;
                 const result = await taskCollection.insertOne(newTask);
-                invalidDateCache(`tasks_${req.user.userId}`);
+                invalidateUserTaskCache(`tasks_${req.user.userId}`);
                 res.writeHead(201, {
                     "Content-Type": "application/json",
                     "cache-control": "no-cache"
@@ -132,7 +137,7 @@ export async function handleTasksRoutes(req, res) {
                     res.end(JSON.stringify({ message: "Task not found" }));
                     return;
                 }else {
-                    invalidDateCache(`tasks_${req.user.userId}`);
+                    invalidateUserTaskCache(`tasks_${req.user.userId}`);
                     res.writeHead(200, {
                         "Content-Type": "application/json"
                     });
@@ -166,7 +171,7 @@ export async function handleTasksRoutes(req, res) {
                 res.end(JSON.stringify({ message: "Task not found" }));
                 return;
             }else {
-                invalidDateCache(`tasks_${req.user.userId}`);
+                invalidateUserTaskCache(`tasks_${req.user.userId}`);
                 res.writeHead(200, {
                     "content-type": "application/json"
                 });
