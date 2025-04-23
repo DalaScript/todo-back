@@ -18,12 +18,12 @@ export async function sendResetEmail(email, resetToken) {
         from: process.env.EMAIL_USER,
         to: email,
         subject: "Reset Password",
-        text: `Click the link belowe to reset your password: ${resetLink}`
+        text: `Click the link below to reset your password: ${resetLink}`
     };
 
     try{
         await transporter.sendMail(mailOptions);
-        console.log("Email sent succesfully");
+        console.log("Email sent successfully");
     }catch(error) {
         console.error("Error sending email: ", error);
         throw new Error("Failed to send reset email");

@@ -26,6 +26,6 @@ export async function connectDB() {
 }
 
 export async function getDB() {
-    if(!db) throw new Error("DB not connected!");
+    if(!db) throw new Error("DB not connected");
     return db;
 }

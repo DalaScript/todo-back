@@ -74,7 +74,7 @@ export async function handleAuthRoutes(req, res) {
                 const user = await userCollection.findOne({ username });
                 if(!user) {
                     res.writeHead(401, { "Content-Type": "application/json" });
-                    res.end(JSON.stringify({ message: "Invalid credintials" }));
+                    res.end(JSON.stringify({ message: "Invalid credentials" }));
                     return;
                 }
 

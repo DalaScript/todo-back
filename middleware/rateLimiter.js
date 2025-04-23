@@ -12,7 +12,7 @@ export function rateLimiter(req, res, next, limit, windowMs) {
 
     console.log("\n=== Rate Limiter Debug ===");
     console.log(`Environment: ${process.env.NODE_ENV}`);
-    console.log(`IP Adress: ${ip}`);
+    console.log(`IP Address: ${ip}`);
     console.log(`Using key: ${key}`);
 
     if(!rateLimitStore.has(key)) {
@@ -31,7 +31,7 @@ export function rateLimiter(req, res, next, limit, windowMs) {
         `Current window size: ${windowMs}ms (${windowMs / 1000} seconds)`
     );
     console.log(`Request count: ${currentTimeStamps.length + 1} of ${limit}`);
-    console.log(`Timestamps in windows:`, currentTimeStamps);
+    console.log(`Timestamps in window:`, currentTimeStamps);
 
     if(currentTimeStamps.length >= limit) {
         console.log("❌ Rate limit exceeded!");
@@ -39,7 +39,7 @@ export function rateLimiter(req, res, next, limit, windowMs) {
             "Content-Type": "application/json",
             "X-RateLimit-Limit": limit,
             "X-RateLimit-Remaining": 0,
-            "X-RateLimit-Limit": Math.ceil(
+            "X-RateLimit-Reset": Math.ceil(
                 (Math.min(...currentTimeStamps) + windowMs) / 1000
             ),
         });

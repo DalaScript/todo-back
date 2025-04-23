@@ -91,14 +91,14 @@ export async function handleTasksRoutes(req, res) {
                 newTask.createdAt = new Date();
                 newTask.completed = false;
                 const result = await taskCollection.insertOne(newTask);
-                invalidateUserTaskCache(`tasks_${req.user.userId}`);
+                invalidateUserTaskCache(req.user.userId);
                 res.writeHead(201, {
                     "Content-Type": "application/json",
                     "cache-control": "no-cache"
                 });
                 res.end(
                     JSON.stringify({ 
-                        message: "Task created successfully!", 
+                        message: "Task created successfully", 
                         taskId: result.insertedId 
                     })
                 );
@@ -137,11 +137,11 @@ export async function handleTasksRoutes(req, res) {
                     res.end(JSON.stringify({ message: "Task not found" }));
                     return;
                 }else {
-                    invalidateUserTaskCache(`tasks_${req.user.userId}`);
+                    invalidateUserTaskCache(req.user.userId);
                     res.writeHead(200, {
                         "Content-Type": "application/json"
                     });
-                    res.end(JSON.stringify({ message: "Task updated successfully!"}));
+                    res.end(JSON.stringify({ message: "Task updated successfully"}));
                 }
             });
         }else if(
@@ -164,18 +164,18 @@ export async function handleTasksRoutes(req, res) {
 
             const result = await taskCollection.deleteOne(filter);
 
-            if(result.deleteCount === 0) {
+            if(result.deletedCount === 0) {
                 res.writeHead(404, {
                     "Content-Type": "application/json"
                 });
                 res.end(JSON.stringify({ message: "Task not found" }));
                 return;
             }else {
-                invalidateUserTaskCache(`tasks_${req.user.userId}`);
+                invalidateUserTaskCache(req.user.userId);
                 res.writeHead(200, {
                     "content-type": "application/json"
                 });
-                res.end(JSON.stringify({ message: "Task deleted successfully!"}));
+                res.end(JSON.stringify({ message: "Task deleted successfully"}));
             }
         }else {
             res.writeHead(404, {

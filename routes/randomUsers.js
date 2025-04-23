@@ -13,7 +13,7 @@ export async function handleRandomUsersRoutes(req, res) {
               ])
               .toArray();
 
-            res.writeHead(200, { "Content-Type": "application/json "});
+            res.writeHead(200, { "Content-Type": "application/json"});
             res.end(JSON.stringify(randomUsers));
         }catch(err) {
             console.error("Error fetching random users", err);
